@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🐝 **Artis — Next-Gen Creative Automation**
+# 🖌 **Artis — Next-Gen Creative Automation**
 ### _Where AI, Web, and Automation blend into pure innovation_
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=26&duration=3000&pause=500&color=6A5CFF&center=true&vCenter=true&width=700&lines=Welcome+to+Artis!;Next-Gen+Automation+for+Creatives;Open-Source+%7C+Fast+%7C+Scalable;Contribute+and+Grow+With+Us+🚀" alt="Typing Animation" />
