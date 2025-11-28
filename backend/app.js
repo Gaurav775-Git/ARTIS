@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var connect = require('./models/connect'); // or ./config/connectdb
+var usersRouter = require('./routes/users');
+const mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -25,6 +27,7 @@ connect();
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/create', usersRouter);
 
 // catch 404
 app.use(function(req, res, next) {
