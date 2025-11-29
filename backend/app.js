@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var createRouter = require('./routes/createUser')
 
 var app = express();
 
@@ -27,7 +28,9 @@ connect();
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/create', usersRouter);
+
+app.use(express.json()); // For parsing JSON
+app.use('/', createRouter);
 
 // catch 404
 app.use(function(req, res, next) {
