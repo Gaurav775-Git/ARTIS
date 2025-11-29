@@ -8,8 +8,6 @@ router.get('/create-user', async (req, res) => {
       name: "John Doe",
       email: "johndoe@example.com",
       password: "password123",
-      role: "user",
-      avatar: "https://example.com/avatar.jpg"
     });
 
     res.json(createdUser)
