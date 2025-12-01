@@ -1,35 +1,42 @@
 const express = require('express');
-const user = require('../models/userSchema');
+const User = require('../models/userSchema');   // Use capital U for model
 const router = express.Router();
 
-//ye sab frontend sai aaaiga data yaha pai sign up ka.
 
-router.post('/signup', (req,res)=>{
-    const {name, email, password} = req.body;
+// SIGNUP ROUTE
+router.post('/signup', async (req, res) => {
+  const { name, email, password } = req.body;
 
-    try{
-        const newUser = user.create({name, email, password});
-        res.json({message: "user created", user: newUser});
-    }catch (err) {
+  try {
+    const newUser = await User.create({ name, email, password }); // await added
+    res.json({ message: "User created", user: newUser });
+  } catch (err) {
     res.json({ message: "Error creating user", err });
-    }
+  }
 });
 
+
+// LOGIN ROUTE
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const user = await User.findOne({ email });
+    const existingUser = await User.findOne({ email }); // fixed User variable
 
-    if (!user) return res.json({ message: "User not found" });
+    if (!existingUser) {
+      return res.json({ message: "User not found" });
+    }
 
-    if (user.password !== password)
+    if (existingUser.password !== password) {
       return res.json({ message: "Wrong password" });
+    }
 
-    res.json({ message: "Login successful", user });
+    res.json({ message: "Login successful", user: existingUser });
+
   } catch (err) {
     res.json({ message: "Error", err });
   }
 });
+
 
 module.exports = router;
