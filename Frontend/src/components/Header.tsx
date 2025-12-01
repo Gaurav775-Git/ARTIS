@@ -21,7 +21,7 @@ const Form = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:3000/signup", formData);
+      const res = await axios.post("/api/signup", formData);
       console.log(res.data);
       alert("User Created Successfully");
     } catch (err) {

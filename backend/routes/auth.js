@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 // SIGNUP ROUTE
-router.post('/signup', async (req, res) => {
+router.post('/api/signup', async (req, res) => {
   const { name, email, password } = req.body;
 
   try {
@@ -17,7 +17,7 @@ router.post('/signup', async (req, res) => {
 
 
 // LOGIN ROUTE
-router.post("/login", async (req, res) => {
+router.post("/api/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
